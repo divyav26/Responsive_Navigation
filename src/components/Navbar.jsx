@@ -3,6 +3,9 @@ import logo from '../img/logo.jpg'
 
 const Navbar = () => {
     const [open, setOpen] = useState(false)
+    const [search, setSearch] = useState(false)
+
+    
   return (
     <>
     <section className='lg:hidden md:hidden'>
@@ -41,7 +44,7 @@ const Navbar = () => {
                 </div>
 
                 <div className='hidden lg:flex items-center'>
-                     <input type='text' placeholder='Search your course here !!' className='p-1 rounded-sm min-w-[350px] outline-none'/>
+                     <input type='text' placeholder='Search your course here !!' className='p-1 rounded-sm min-w-[350px] outline-none' onClick={()=>setSearch(!search)}/>
                     <i className='bx bx-search bg-orange-500 p-2'></i>
                 </div>
             </div>
@@ -63,7 +66,7 @@ const Navbar = () => {
                         </button>
                 </div>
                 <div className='flex justify-center items-center mt-2'>
-                        <input type='text' placeholder='Search your course here !!' className='p-1 rounded-sm min-w-[300px] outline-none'/>
+                        <input placeholder='Search your course here !!' className='p-1 rounded-sm min-w-[300px] outline-none' onClick={()=>setSearch(!search)}/>
                         <i className='bx bx-search bg-orange-500 p-2'></i>
                 </div>
                 <div className='All-course flex justify-center items-center gap-4 text-center text-white mt-2'>
@@ -71,8 +74,33 @@ const Navbar = () => {
                     <i className='bx bxs-user-circle text-2xl'></i>
                 </div>
             </div>
+            )
+    }
+
+    {
+        search && (
+  
+            <div className="fixed inset-0 m-12 flex justify-center items-stat bg-opacity-75 z-50">
+          <div className="bg-white rounded shadow-md w-full h-[50vh] my-0">
+            <div className="flex justify-end bg-blue-950 h-[50px] w-full">
+              <button
+                onClick={()=>setSearch(false)}
+                className="text-gray-500 hover:text-gray-700 focus:outline-none"
+              >
+                &times;
+              </button>
+              
+            </div>
+           <div className='top-header'>
+
+           </div>
+          </div>
+        </div>
+ 
         )
     }
+
+   
 
     <section>
         <div className='hidden lg:flex justify-center gap-4 pt-2'>
